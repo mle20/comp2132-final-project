@@ -1,0 +1,393 @@
+@charset "utf-8";
+@import "normalize.scss";
+@import "fonts.scss";
+
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.show {
+  display: block;
+}
+
+/* ------ Variables ------ */
+$main-colour: #3c7abd;
+$main-green: #0D9755;
+$main-red: #EA2321;
+$yellow-background: #eeb866;
+$dark-background: #375371;
+$light-background: #f8f5f4;
+
+$heading-font: "NewSuperMarioFontU";
+$block-text-font-face: "fira_sansregular";
+
+
+/* ------ Mixins ------ */
+
+@mixin center-content {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin font($family, $size) {
+  font-family: $family;
+  font-size: $size;
+}
+
+/* ------ HTML Element Selectors ------ */
+
+nav {
+  display: none;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background: $light-background;
+}
+
+h1 {
+  @include font($heading-font, 1.9rem);
+  margin-top: 27px;
+  margin-right: 19px;
+}
+
+h2 {
+  @include font($heading-font, 2rem);
+  text-align: center;
+  color: purple;
+  font-weight: bolder;
+  margin: 2px;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family:"Bitter", serif;
+  font-size: 1.5rem;
+  margin: 10px;
+  text-align: center;
+  color: $main-colour;
+  font-weight: bolder;
+}
+
+p {
+  padding: 10px;
+  margin: 0;
+  line-height: 27px;
+  text-align: center;
+}
+
+img {
+  width: 120px;
+  height: auto; 
+  max-width: 100%; 
+  border: 1px solid black;
+  border-radius: 10px; 
+}
+
+header {
+  background-color: $yellow-background;
+  color: white;
+}
+
+footer {
+  background-color: $yellow-background;
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+  @include center-content();
+}
+
+footer h3 {
+  color: white;
+  margin: 20px 0;
+}
+
+a {
+  color: $yellow-background;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: $dark-background;
+    text-decoration: underline;
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+ul li::before {
+  content: "•";
+  margin-right: 5px;
+  color: $main-red;
+  font-size: 2rem;
+  vertical-align: middle;
+  line-height: 30px;
+}
+
+ul li {
+  color: $main-red;
+  font-family: "Bitter", sans-serif;
+  text-align: center;
+  counter-increment: item;
+  line-height: 27px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+
+button {
+  border: 3px solid $yellow-background; 
+  background-color: #f8f5f4;
+  font-family: 'Bungee Spice', sans-serif;
+  font-size: 1.3rem;
+  margin: 15px;
+  justify-content: center; 
+  height: 50px;
+  width: 160px;
+
+  &:hover {
+    background-color: $yellow-background;
+  }
+
+  &:disabled {
+    background-color: rgb(221, 218, 218); 
+    cursor: not-allowed;
+  }
+}
+
+input[type="radio"] {
+  display: none; 
+}
+
+/*
+----------------------------
+.class selectors
+----------------------------
+*/
+
+.nav-a {
+  display: block;
+  line-height: 45px;
+  text-align: center;
+  font-size: 1.1em;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 3px 10px;
+  margin-right: 1px;
+}
+
+.nav-a:hover {
+  color: var(--light-accent);
+}
+
+.nav-a:active {
+  color: var(--light-accent);
+  text-decoration: underline;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: white;
+  font-weight: normal;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+  text-decoration: underline;
+}
+
+
+.banner {
+  @include center-content();
+  padding: 20px;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 0px;
+
+  &-header {
+    font-family: $heading-font;
+    text-align: center;
+    font-size: 3.6em;
+    margin: 0;
+    line-height: 1;
+    color: $dark-background;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 4px 4px 8px $light-background;
+  }
+}
+
+
+.diceContainer {
+  display: flex; 
+  justify-content: center; 
+  gap: 50px; 
+  margin: 50px 0px;
+}
+
+.diceContainer img {
+  width: 100px;
+  height: auto;
+}
+
+.scores {
+  background-color: purple;
+ font-family: "Bitter", serif;
+ font-size: 1.5rem;
+  color: white;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.gameRules{
+  margin: 20px auto; 
+  max-width: 500px; 
+}
+/* 
+---------------------------- 
+id selectors 
+---------------------------- 
+*/
+
+#wrapper {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  max-width: 1980px;
+  margin: auto;
+}
+
+#announcement-bar {
+  text-align: center;
+  font-weight: bolder;
+  background-color: var(--yellow-background);
+
+}
+
+#popUp, #outcomePopup {
+  display: none; 
+  position: fixed; 
+  top: 40%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  max-width: 800px;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 1; 
+  opacity: 0; 
+  transition: opacity 0.6s ease-in-out;
+  text-align: center; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#characterSelect img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#characterSelect label {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+#characterSelect label:hover img {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#characterSelect input[type=radio]:checked + img {
+  border-color: red;
+}
+
+#characterSelect {
+
+    img {
+      border: 3px solid transparent; 
+      transition: border-color 0.3s; 
+    }
+
+    &.selected img {
+      border-color: red; 
+    }
+  }
+
+
+#playerIcon, #computerIcon {
+  width: 100px; 
+  height: 100px; 
+  border-radius: 50%;
+  object-fit: cover; 
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.gameContainer {
+  max-width: 500px; 
+  margin: 0 auto; 
+}
+
+#player, #computer {
+  background-color: rgb(255, 253, 251);
+  border: 3px solid var(--yellow-background); 
+  flex: 1;
+  text-align: center;
+  padding: 10px; 
+  margin: 10px;
+}
+
+
+
+
+@media (min-width: 600px) {
+
+  .gameContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    max-width: 800px; 
+    margin: 0 auto; 
+  }
+
+  .gameRules{
+    max-width: 900px; 
+  }
+
+}
+
+

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COMP 2132 - Assignment08</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter&family=Bungee+Spice&family=Passion+One&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/bcd8bc4635.js" crossorigin="anonymous" defer="defer"></script>
+  <script src="scripts/dicegame.js" defer="defer"></script>
+
+  <meta name="description" content="COMP2132 Assignment 08 JavaScript Practice.">
+</head>
+
+<body>
+  <div id="wrapper">
+    <header>
+      <div id="announcement-bar">
+        <p>COMP2132 Web Development JavaScript</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="background">
+      <section class="banner">
+        <div class="transparent-background">
+          <h1 class="banner-header">Welcome to the Dice Game!</h1>
+        </div>
+      </section>
+
+      <section id="popUp">
+        <p>Are you Team Mario or Team Bowser?</p>
+        <p>Enter your name and select a character to begin.</p>
+
+        <label for="user">Name:</label>
+        <input type="text" id="user" name="user" placeholder="Name">
+
+        <p>Select Your Character:</p>
+        <div id="characterSelect">
+          <label>
+            <input type="radio" name="character" value="mario">
+            <img src="images/iconMario.png" alt="Mario character.">
+          </label>
+          <label>
+            <input type="radio" name="character" value="luigi">
+            <img src="images/iconLuigi.png" alt="Luigi character.">
+          </label>
+          <label>
+            <input type="radio" name="character" value="peach">
+            <img src="images/iconPeach.png" alt="Peach character.">
+          </label>
+          <label>
+            <input type="radio" name="character" value="bowser">
+            <img src="images/iconBowser.png" alt="Bowser character.">
+          </label>
+          <label>
+            <input type="radio" name="character" value="koopa">
+            <img src="images/iconKoopa.jpg" alt="Koopa character.">
+          </label>
+          <label>
+            <input type="radio" name="character" value="boo">
+            <img src="images/iconBoo.png" alt="Boo character.">
+          </label>
+        </div>
+        <button id="playButton">Play Now!</button>
+      </section>
+
+
+      <section class="gameContainer">
+        <div id="player">
+          <img src="images/toadIcon.jpg" id="playerIcon" alt="Player's Icon">
+          <h2>Player</h2>
+          <div id="playerDice" class="diceContainer">
+            <img src="images/dice-01.svg" id="playerDice1" alt="Player's Dice">
+            <img src="images/dice-01.svg" id="playerDice2" alt="Player's Dice">
+          </div>
+          <div class="scores">
+          <p >Round Score: <span id="playerCurrentScore">0</span></p>
+          <p >Total Score: <span id="playerTotalScore">0</span></p>
+         </div>
+        </div>
+        <div id="computer">
+          <img src="images/toadIcon.jpg" id="computerIcon" alt="Computer's Icon">
+          <h2>Computer</h2>
+          <div id="computerDice" class="diceContainer">
+            <img src="images/dice-01.svg" id="compDice1" alt="Computer's Dice 1">
+            <img src="images/dice-01.svg" id="compDice2" alt="Computer's Dice 2">
+          </div>
+          <div class="scores">
+          <p>Round Score: <span id="compCurrentScore">0</span></p>
+          <p>Total Score: <span id="compTotalScore">0</span></p>
+        </div>
+        </div>
+      </section>
+      <section class="button-container">
+        <button id="startButton">Start Game</button>
+        <button id="rollButton">Roll Dice</button>
+        <button id="resetButton">Reset Game</button>
+      </section>
+      <section id="outcomePopup" >
+        <div class="outcomeContent">
+          <h2 id="outcomeMessage"></h2>
+          <button id="closePopupButton">Close</button>
+        </div>
+      </section>
+      <section class="gameRules">
+        <h2>Game Rules</h2>
+        <ul>
+          <li>If any dice comes up as a 1 then the score for that round is 0. </li>
+          <li>If rolling a pair of the same numbers then the score is sum of the dice times 2. </li>
+          <li>Else the score is the total value of the two dice.</li>
+          <li>The game ends after 3 rounds.</li>
+        </ul>
+      </section>
+    </div>
+    </main>
+
+
+    <footer>
+      <div>
+        <h3>Contact</h3>
+        <p>
+          <a class="footer-link" href="tel:604-123-4567">(604)-123-4567</a>
+        </p>
+        <p>
+          <a class="footer-link" href="mailto:mle20@my.bcit.ca">mle20@my.bcit.ca</a>
+        </p>
+      </div>
+      <div>
+        <h3>Stay Connected</h3>
+        <i class="fa-brands fa-instagram fa-lg"></i>
+        <i class="fa-brands fa-facebook-f fa-lg"></i>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
